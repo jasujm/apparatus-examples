@@ -48,14 +48,14 @@ int main()
     struct sigaction sa;
 
     sigemptyset(&sigset);
-    sigaddset(&sigset, SIGINT);
+    sigaddset(&sigset, SIGTERM);
     sigprocmask(SIG_SETMASK, &sigset, NULL);
 
     sigemptyset(&sigset);
     sa.sa_handler = &handle_signal;
     sa.sa_mask = sigset;
     sa.sa_flags = 0;
-    sigaction(SIGINT, &sa, NULL);
+    sigaction(SIGTERM, &sa, NULL);
 
     server_fd = create_server();
     pollfds[0].fd = server_fd;

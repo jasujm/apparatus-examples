@@ -51,7 +51,7 @@ int main()
     int server_fd, socket_fd;
     struct pollfd pollfds[1];
 
-    signal(SIGINT, &handle_signal);
+    signal(SIGTERM, &handle_signal);
 
     server_fd = create_server();
     pollfds[0].fd = server_fd;

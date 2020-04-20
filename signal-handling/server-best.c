@@ -41,7 +41,7 @@ int main()
     struct signalfd_siginfo siginfo;
 
     sigemptyset(&sigset);
-    sigaddset(&sigset, SIGINT);
+    sigaddset(&sigset, SIGTERM);
     sigprocmask(SIG_SETMASK, &sigset, NULL);
 
     server_fd = create_server();
